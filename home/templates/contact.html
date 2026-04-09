@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | OrbitShifts{% endblock %}
+
+{% block content %}
+<section class="hero" style="min-height: 40vh;">
+    <h1>Get in Touch</h1>
+    <p>We would love to hear from you! Expect a response within 24 hours.</p>
+</section>
+
+<div class="contact-container">
+    <div class="contact-card">
+        <div class="contact-info">
+            <h2>Contact Details</h2>
+            <p>Reach out to us through any of these channels for immediate assistance or questions about our programs.</p>
+            
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <strong>Call Us</strong>
+                    <p>+91 96044 23413</p>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <strong>Email Us</strong>
+                    <p>ashishorbitshift@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>Visit Us</strong>
+                    <p>Pune Airport, Maharashtra, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form" id="formContainer">
+            <h2>Send a Message</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="NAME" placeholder="Your Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="MOBILE" placeholder="Mobile Number*" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="COLLEGE" placeholder="College Name*" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="EMAIL" placeholder="Email Address*" required>
+                </div>
+                <div style="margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; opacity: 0.8;">
+                    <input type="checkbox" required style="width: auto; margin-top: 4px;">
+                    <span>By clicking submit, you agree with our Privacy Policy.</span>
+                </div>
+                <button type="submit" class="submit-btn" id="submitButton">Submit Message</button>
+            </form>
+        </div>
+
+        <div id="successMessage" style="display:none; text-align:center; padding: 4rem 2rem;">
+            <i class="fas fa-check-circle" style="font-size: 5rem; color: var(--accent-color); margin-bottom: 1.5rem;"></i>
+            <h2 style="color: var(--primary-color);">Thank You!</h2>
+            <p style="opacity: 0.7; font-size: 1.1rem;">Your response has been submitted successfully. Our team will get back to you shortly.</p>
+            <button class="btn btn-primary" style="margin-top: 2rem;" onclick="location.reload()">Send Another Message</button>
+        </div>
+    </div>
+</div>
+
+<section style="padding: 5rem 5%; text-align: center; background: white; margin-top: 5rem;">
+    <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem;">Find Us on Map</h2>
+    <div style="border-radius: 30px; overflow: hidden; box-shadow: var(--shadow); height: 450px;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15129.986345672288!2d73.9105436660156!3d18.583321550000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1363656911d%3A0xe443217d45f3e098!2sPune%20Airport!5e0!3m2!1sen!2sin!4v1712680000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwg69MZkCfJ_hXK22jQ1gFB404j2Vpr5V3-MUTlsIbWMJVzuxtv0bPKuiXTuty5RRjE/exec';
+    const form = document.getElementById('contactForm');
+    const formContainer = document.getElementById('formContainer');
+    const successMessage = document.getElementById('successMessage');
+    const submitButton = document.getElementById('submitButton');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                formContainer.style.display = 'none';
+                successMessage.style.display = 'block';
+            })
+            .catch(error => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Submit Message';
+                alert("An error occurred. Please try again later.");
+                console.error('Error!', error.message);
+            });
+    });
+</script>
+{% endblock %}

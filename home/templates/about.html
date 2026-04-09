@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | OrbitShifts{% endblock %}
+
+{% block content %}
+<section class="hero" style="height: 50vh;">
+    <h1>About OrbitShifts</h1>
+    <p>Innovating the Future with AI & Technology</p>
+</section>
+
+<section class="container" style="padding: 5rem 5%;">
+    <div class="about-overview" style="margin-bottom: 5rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem; border-left: 8px solid var(--accent-color); padding-left: 1.5rem;">Company Overview</h2>
+        <div class="domains-grid">
+            <div class="domain-card" style="text-align: center;">
+                <h3>Industry</h3>
+                <p>IT Solutions & Services</p>
+            </div>
+            <div class="domain-card" style="text-align: center;">
+                <h3>Type</h3>
+                <p>Medium Scale Company</p>
+            </div>
+            <div class="domain-card" style="text-align: center;">
+                <h3>Location</h3>
+                <p>Pune Airport, Maharashtra</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-expertise" style="margin-bottom: 5rem;">
+        <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem; border-left: 8px solid var(--accent-color); padding-left: 1.5rem;">Our Expertise</h2>
+        <div class="domains-grid">
+            <div class="domain-card"><i class="fas fa-terminal" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Web Development</div>
+            <div class="domain-card"><i class="fas fa-robot" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>AI / Machine Learning</div>
+            <div class="domain-card"><i class="fas fa-code-branch" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Full Stack Development</div>
+            <div class="domain-card"><i class="fas fa-database" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>AI / Data Science</div>
+            <div class="domain-card"><i class="fas fa-user-shield" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Cyber Security</div>
+            <div class="domain-card"><i class="fas fa-vial" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Data Analytics</div>
+            <div class="domain-card"><i class="fas fa-microchip" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Embedded Systems</div>
+            <div class="domain-card"><i class="fas fa-cloud" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Cloud (AWS)</div>
+            <div class="domain-card"><i class="fas fa-mobile-alt" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>Android with AI</div>
+            <div class="domain-card"><i class="fas fa-bezier-curve" style="font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i><br>UI/UX Designing</div>
+        </div>
+    </div>
+
+    <div class="about-leadership">
+        <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 2rem; border-left: 8px solid var(--accent-color); padding-left: 1.5rem;">Leadership</h2>
+        <div class="domain-card" style="max-width: 600px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; text-align: left;">
+            <div style="width: 150px; height: 150px; background: #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-user" style="font-size: 4rem; color: #ccc;"></i>
+            </div>
+            <div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Ashish Uttekar</h3>
+                <p style="color: var(--accent-color); font-weight: 600; margin-bottom: 1rem;">Founder & CEO</p>
+                <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 0.5rem;">10+ Years Experience in AI, ML, Web & Cybersecurity</p>
+                <p style="font-size: 0.95rem; opacity: 0.8;"><i class="fas fa-envelope"></i> ashishorbitshift@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
